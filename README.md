@@ -25,10 +25,10 @@ la snippet est a générer dans un fichier d'extension .php
 
 # Release Notes
 
-Correctif snippet class DbManager. 
+Ajout du tutoriel installation LAMP sous ubuntu
 
 
-### 0.0.2
+### 0.0.3
 
 (version du système node en cours de développement: 14.0.0)
 
