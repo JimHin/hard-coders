@@ -1,65 +1,36 @@
-# hard-coders README
+# Hard-Coders 1.0.0 README
 
-This is the README for your extension "hard-coders". After writing up a brief description, we recommend including the following sections.
+Hard-coders est ma seconde création d'extension.
 
-## Features
+Elle permet de générer les codes html, css, php ou js nécessaires durant l'apprentissage.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-For example if there is an image subfolder under your extension project workspace:
+# Fonctionnalités
 
-\!\[feature X\]\(images/feature-x.png\)
+Placez votre curseur dans un fichier d'extension php, js, html ou css
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Toutes les commandes commencent par 
+### hc-
 
-## Requirements
+suivi de la nature de l'extension du fichier dans lequel vous voulez générer la snippet
+### Exemples: hc-php  ou hp-js ou hp-html
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Des propositions vous seront alors faites. Toutes les snippets sont documentées
 
-## Extension Settings
+## !!! ATTENTION !!! 
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Si la commande hc- n'est pas suivi par une extension de langage spécifique, considérez que 
+la snippet est a générer dans un fichier d'extension .php
 
-For example:
 
-This extension contributes the following settings:
+# Release Notes
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+Première version. 
 
-## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### 0.0.1
 
-## Release Notes
+(version du système node en cours de développement: 14.0.0)
 
-Users appreciate release notes as you update your extension.
 
-### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
