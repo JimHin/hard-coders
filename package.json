@@ -29,8 +29,38 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "hard-coders.helloWorld",
-				"title": "Hello World"
+				"command": "hc-comment",
+				"title": "commenter ce bloc"
+			}
+		],
+		"snippets": [
+			{
+				"language": "php",
+				"path": "./snippets/snippets_php.json"
+			},
+			{
+				"language": "html",
+				"path": "./snippets/snippets_html.json"
+			},
+			{
+				"language": "css",
+				"path": "./snippets/snippets_css.json"
+			},
+			{
+				"language": "css",
+				"path": "./snippets/snippets_animate.json"
+			},
+			{
+				"language": "bootstrap",
+				"path": "./snippets/snippets_bootstrap.json"
+			},
+			{
+				"language": "mysql",
+				"path": "./snippets/snippets_mysql.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/snippets_js.json"
 			}
 		]
 	},

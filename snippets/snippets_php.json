@@ -1,0 +1,603 @@
+{
+    "Une classe php User hydratable": {
+		"prefix": "hc-php-class-User",
+		"body": [
+			"",
+			"class User ",
+			"{    ",
+			"    ",
+			"    /**",
+			"     * _id_user",
+			"     *",
+			"     * @var mixed",
+			"     */",
+			"    private $$_id_user;    ",
+			"    /**",
+			"     * _nom_user",
+			"     *",
+			"     * @var mixed",
+			"     */",
+			"    private $$_nom_user;    ",
+			"    /**",
+			"     * _prenom_user",
+			"     *",
+			"     * @var mixed",
+			"     */",
+			"    private $$_prenom_user;    ",
+			"    /**",
+			"     * _mot_de_passe_user",
+			"     *",
+			"     * @var mixed",
+			"     */",
+			"    private $$_mot_de_passe_user;",
+			"    ",
+			"    /**",
+			"     * __construct",
+			"     *",
+			"     * @param  mixed $donnees",
+			"     * @return void",
+			"     */",
+			"    public function __construct(array $$donnees){",
+			"        $$this->hydrate($$donnees);",
+			"    }",
+			"    /*",
+			"    GETTERS (ACCESSEURS)",
+			"    */    ",
+			"    /**",
+			"     * get_id_user",
+			"     *",
+			"     * @return void",
+			"     */",
+			"    public function get_id_user(){",
+			"        return $$this->_id;",
+			"    }    ",
+			"    /**",
+			"     * get_nom_user",
+			"     *",
+			"     * @return void",
+			"     */",
+			"    public function get_nom_user(){",
+			"        return $$this->_nom;",
+			"    }    ",
+			"    /**",
+			"     * get_prenom_user",
+			"     *",
+			"     * @return void",
+			"     */",
+			"    public function get_prenom_user(){",
+			"        return $$this->_prenom;",
+			"    }    ",
+			"    /**",
+			"     * get_mot_de_passe_user",
+			"     *",
+			"     * @return void",
+			"     */",
+			"    public function get_mot_de_passe_user(){",
+			"        return $$this->_prenom;",
+			"    }",
+			"    /*",
+			"    SETTERS (MUTATEURS)",
+			"    */    ",
+			"    /**",
+			"     * set_id_user",
+			"     *",
+			"     * @param  mixed $$id",
+			"     * @return void",
+			"     */",
+			"    public function set_id_user($$id){",
+			"        $$this->_id_user = $$id;",
+			"    }    ",
+			"    /**",
+			"     * set_nom_user",
+			"     *",
+			"     * @param  mixed $$nom",
+			"     * @return void",
+			"     */",
+			"    public function set_nom_user($$nom){",
+			"        $$this->_nom_user = $$nom;",
+			"    }    ",
+			"    /**",
+			"     * set_prenom_user",
+			"     *",
+			"     * @param  mixed $$prenom",
+			"     * @return void",
+			"     */",
+			"    public function set_prenom_user($$prenom){",
+			"        $$this->_prenom_user = $$prenom;",
+			"    }    ",
+			"    /**",
+			"     * set_mot_de_passe_user",
+			"     *",
+			"     * @param  mixed $$pass",
+			"     * @return void",
+			"     */",
+			"    public function set_mot_de_passe_user($$pass){",
+			"        $$this->_mot_de_passe_user = $$pass;",
+			"    }",
+			"    /*",
+			"    AUTRES METHODES ",
+			"    */    ",
+			"    /**",
+			"     * hydratation de l'objet User instancié",
+			"     *",
+			"     * @param  mixed $donnees",
+			"     * @return void",
+			"     */",
+			"    public function hydrate(array $$donnees)",
+			"    {",
+			"        foreach ($$donnees as $$key => $$value)",
+			"        {",
+			"            // On récupère le nom du setter correspondant à l'attribut.",
+			"            $$method = 'set_'.$$key;",
+			"                ",
+			"            // Si le setter correspondant existe.",
+			"            if (method_exists($$this, $$method))",
+			"            {",
+			"            // On appelle le setter.",
+			"            $$this->$$method($$value);",
+			"            }",
+			"        }",
+			"    }",
+			"}",
+			""
+		],
+		"description": "Classe User en php, documentée avec setters, getters et l'hydratation"
+	},
+	"connexion PDO procedurale": {
+		"prefix": "hc-php-pdo-proc",
+		"body": [
+			"$$adresse = 'mysql:host=127.0.0.1;dbname=test';",
+			"$$nom_utilisateur = '';",
+			"$$mot_de_passe = '';",
+			"$$options = [",
+			"    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,",
+			"    PDO::ATTR_PERSISTENT => true",
+			"];",
+			"",
+			"try ",
+			"{",
+			"    $$connexion = new PDO($$adresse, $$nom_utilisateur, $$mot_de_passe, $$options);",
+			"} ",
+			"catch (Exception $$e) ",
+			"{",
+			"    echo 'Échec de la connexion : ' . $$e->getMessage();",
+			"    exit;",
+			"}"
+		],
+		"description": "un bloc permettant de se connecter à sa base de données mysql avec PDO"
+	},
+	"requete preparee mysql simple": {
+		"prefix": "hc-php-prepare-select-from",
+		"body": [
+			"//Remplacer colonnes par étoile pout sortir", 
+			"//toutes les données de la table entite",
+			"$$req = $$connexion->prepare('SELECT colonnes FROM entite');",
+			"$$req->execute();",
+			"$$res = $$req->fetchAll();"
+		],
+		"description": "une requête mysql préparée pour selection dans la table visée"
+	},
+	"fonction de concatenation": {
+		"prefix": "hc-php-fc-concatenation",
+		"body": [
+			"function concatenation(string $$variable_origine, string $$ajout) : string",
+			"{",
+			"    return $$pre.$$post;",
+			"}"
+		],
+		"description": "Fonction php de concaténation de deux arguments string"
+	},
+	"fonction soustraction 1ere valeur d'un tableau": {
+		"prefix": "hc-php-fc-array_shift",
+		"body": [
+			"public function concatenation(array $$tableau) : array",
+			"{",
+			"    $$tableau = array_shift($$tableau);",
+			"    return $$tableau;",
+			"}"
+		],
+		"description": "Fonction php de concaténation de deux arguments string"
+	},
+	"fonction soustraction derniere valeur d'un tableau": {
+		"prefix": "hc-php-fc-array_pop",
+		"body": [
+			"public function concatenation(array $$tableau) : array",
+			"{",
+			"    $$tableau = array_pop($$tableau);",
+			"    return $$tableau;",
+			"}"
+		],
+		"description": "Fonction php de concaténation de deux arguments string"
+	},
+
+	"bloc de commentaire header": {
+		"prefix": "hc-comment-php-header",
+		"body": [
+			"/*********************************************",
+            "   Auteur:",
+            "   Date de création:               ../../2020",
+            "   Date de dernière modification:  ../../2020",
+            "   A propos:",
+            "**********************************************/"
+		],
+		"description": "Un bloc d'entête pour documenter un fichier"
+    },
+    "bloc de commentaire getters": {
+		"prefix": "hc-comment-php-getters-zone",
+		"body": [
+			"/*********************************************",
+            "           ACCESSEURS ( GETTERS )",
+            "**********************************************/"
+		],
+		"description": "Un bloc getters d'une classe"
+    },
+    "bloc de commentaire setters": {
+		"prefix": "hc-comment-php-setters-zone",
+		"body": [
+			"/*********************************************",
+            "           MUTATEURS ( SETTERS )",
+            "**********************************************/"
+		],
+		"description": "Un bloc setters d'une classe"
+    },
+    "bloc de commentaire methodes": {
+		"prefix": "hc-comment-php-methods-zone",
+		"body": [
+			"/*********************************************",
+            "           AUTRES MÉTHODES DE LA CLASSE",
+            "**********************************************/"
+		],
+		"description": "Un bloc méthodes d'une classe"
+    },
+    "ligne de commentaire": {
+		"prefix": "hc-comment-php-line",
+		"body": [
+			"// mon commentaire"
+		],
+		"description": "Une ligne de commentaire"
+    },
+    "bloc de commentaire": {
+		"prefix": "hc-comment-php-bloc",
+		"body": [
+			"/*********************************************",
+            "                                              ",
+            "**********************************************/"
+		],
+		"description": "Un bloc de commentaire pour informer"
+	},
+	"ECF: php oriente objet et mysql": {
+		"prefix": "hc-ECF-php-mysql",
+		"body": [
+			"/**",
+			" * ",
+			" * EXERCICE N°1",
+			" * ",
+			" * Les utilisateurs de l'application \"exo1\" sont caractérisés par:",
+			" * un identifiant numérique unique, un nom, un prénom, une date de naissance,",
+			" * un mot de passe. ",
+			" * ",
+			" *          a/ Ecrivez ci-dessous, entre les deux balises div sous forme d'une liste html ",
+			" *             tout les attributs (colonnes) nécessaires à l'expression de la table user ",
+			" *             en base de données, ainsi que le type de chacun des attributs.",
+			" *  -------------------------------------------------------------------------------------*/?>",
+			"<div id=\"reponse a\">",
+			"",
+			"    <ol id=\"liste ordonnée des attributs\">",
+			"        <!-- Codez ici -->",
+			"    </ol>",
+			"",
+			"</div>",
+			"",
+			"<?php /**",
+			" *          b/ Codez ci-dessous la classe User correspondante avec ",
+			" *             les accesseurs et les mutateurs de chaque attributs privés.",
+			" *              !!! ATTENTION !!! Ne documentez pas la classe",
+			" *  -------------------------------------------------------------------------------------*/",
+			"//Codez sous cette ligne de commentaire sans rajouter de bornes de langage",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"/**",
+			" *          c/ Copier-coller la classe provenant de la question b et renommez la User2,",
+			" *             ajouter lui un constructeur qui appelle une méthode hydrate() et codez cette méthode.",
+			" *             Le tableau de données pour l'hydratation est fourni. ",
+			" *             Vous documenterez ensuite cette classe",
+			" *  -------------------------------------------------------------------------------------*/",
+			"//Codez sous l'affectation de la variable $attributs sans rajouter de bornes de langage",
+			"",
+			"$attributs = array('1','Coquelourde','Fernand','17/02/1968','ginettedu72');",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"/**",
+			" *          d/ instanciez un objet $user2 provenant de votre classe User2",
+			" *  -------------------------------------------------------------------------------------*/",
+			"//Codez sous cette ligne de commentaire sans rajouter de bornes de langage",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"/**",
+			" * ",
+			" * EXERCICE N°2",
+			" * ",
+			" *  Rédigez les requêtes SQL demandées sur la table user dans les méthodes PDO prepare()",
+			" *  ------------------------------------------------------------------------------------- ",
+			" * EXEMPLE :",
+			" * $sql = 'SELECT nom, couleur, calories FROM fruit WHERE calories < :calories AND couleur = :couleur';*/",
+			"/* $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));",
+			"    $sth->execute(array(':calories' => 150, ':couleur' => 'red'));",
+			"    $red = $sth->fetchAll();",
+			"    $sth->execute(array(':calories' => 175, ':couleur' => 'yellow'));",
+			"    $yellow = $sth->fetchAll(); ",
+			"*/",
+			"/*",
+			" *          a/ Sélectionner le nom de tous les utilisateurs de la table",
+			" *  -------------------------------------------------------------------------------------*/",
+			"",
+			"",
+			"$dbh = new PDO('odbc:SAMPLE', 'db2inst1', 'ibmdb2');",
+			"$sth = $dbh->prepare('           codez votre requète sql ici, entre les quotes         ');",
+			"$exec = $sth->execute();",
+			"$response = $exec->fetchAll();",
+			"",
+			"",
+			"",
+			"",
+			"/**",
+			" *          b/ Sélectionner toutes les infos de l'utilisateur d'id 8 de la table",
+			" *  -------------------------------------------------------------------------------------*/",
+			"",
+			"$dbh = new PDO('odbc:SAMPLE', 'db2inst1', 'ibmdb2');",
+			"$sth = $dbh->prepare('           codez votre requète sql ici, entre les quotes         ');",
+			"$exec = $sth->execute();",
+			"$response = $exec->fetchAll();",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"?>"
+		],
+		"description": "2 exercices pour savoir si vous possédez les rudiments de la programmation orienté objet en php"
+	},
+	"Liste des fonctions php": {
+		"prefix": "hc-php-fc-list-all",
+		"body": [
+			"$list_des_fonctions_php = 'https://www.php.net/manual/fr/indexes.functions.php#refentry-index-for-f';"
+		],
+		"description": "Liste de toutes les fonctions php"
+	},
+	"Cours de markdown": {
+		"prefix": "hc-php-COURS-markdown",
+		"body": [
+			"$cours_markdown = 'https://www.supinfo.com/articles/single/2137-presentation-langage-markdown"
+		],
+		"description": "Cours supinfo markdown"
+	},
+	"Cours de Javascript": {
+		"prefix": "hc-php-COURS-js",
+		"body": [
+			"$cours_js_base = 'https://developer.mozilla.org/fr/docs/Apprendre/Commencer_avec_le_web/Les_bases_JavaScript"
+		],
+		"description": "Cours MDN Javascript"
+	},
+	"Cours d'ajax": {
+		"prefix": "hc-php-COURS-ajax",
+		"body": [
+			"$cours_ajax = 'https://developer.mozilla.org/fr/docs/Apprendre/Commencer_avec_le_web/Les_bases_JavaScript"
+		],
+		"description": "Cours MDN Ajax"
+	},
+	"Devdocs": {
+		"prefix": "hc-php-devdocs",
+		"body": [
+			"$cours_ajax = 'https://devdocs.io"
+		],
+		"description": "Documentation devdocs"
+	},
+	"Classe DbManager extends PDO avec fichier ini": {
+		"prefix": "hc-php-DbManager-extendsPDO-fichier-ini",
+		"body": [
+			"    namespace App;",
+			"\\t\\t",
+			"\\t/**",
+			"\\t * DbManager",
+			"\\t */",
+			"\\tclass DbManager extends \\PDO {",
+			"",
+			"        public function __construct($file = 'db.ini')",
+			"        {",
+			"            if (!$settings = parse_ini_file($file, TRUE)) ",
+			"                throw new \\Exception('Unable to open ' . $file . '.');",
+			"            ",
+			"            $dns = $settings['database']['driver'] .':host=' . $settings['database']['host'] .",
+			"                    ((!empty($settings['database']['port'])) ? (';port=' . $settings['database']['port']) : '') .';dbname=' . ",
+			"                    $settings['database']['schema'];",
+			"",
+			"            parent::__construct($dns, $settings['database']['username'], $settings['database']['password']);",
+			"        }",
+			"        /* ",
+			"        Copier le code ci-dessous dans le fichier db.ini pour ",
+			"        renseigner vos infos de connexion :",
+			"",
+			"        [Database]",
+			"        host=127.0.0.1",
+			"        driver=mysql",
+			"        schema=nom db",
+			"        port =3306",
+			"",
+			"        */\\t",
+			"\\t}"
+		],
+		"description": "Un exemple de classe d'extension de PDO avec infos dans fichier .ini"
+	},
+	"Définition de l'héritage en php": {
+		"prefix": "hc-php-DEF-heritage",
+		"body": [
+			"/*",
+			"Héritage",
+			"",
+			"",
+			"L'héritage est un des grands principes de la programmation orientée objet (POO), ",
+			"et PHP l'implémente dans son modèle objet. Ce principe va affecter la manière dont de nombreuses ",
+			"classes sont en relation les unes avec les autres.",
+			"",
+			"Par exemple, lorsque vous étendez une classe, la classe fille hérite de toutes les méthodes ",
+			"publiques et protégées de la classe parente. Tant qu'une classe n'écrase pas ces méthodes, ",
+			"elles conservent leur fonctionnalité d'origine.",
+			"",
+			"L'héritage est très utile pour définir et abstraire certaines fonctionnalités communes à plusieurs",
+			"classes, tout en permettant la mise en place de fonctionnalités supplémentaires dans les classes enfants,",
+			"sans avoir à réimplémenter en leur sein toutes les fonctionnalités communes.",
+			"",
+			"Note:",
+			"",
+			"A moins que l'autoload ne soit utilisé, les classes doivent être connues avant d'être utilisées. ",
+			"Les classes mères doivent être définies avant l'écriture d'un héritage. ",
+			"Cette règle générale s'applique aussi dans le cas d'héritage ou d'implémentation d'interfaces.",
+			"",
+			"Exemple:",
+			"",
+			"<?php",
+			"",
+			"class Foo",
+			"{",
+			"    public function printItem($string)",
+			"    {",
+			"        echo 'Foo: ' . $string . PHP_EOL;",
+			"    }",
+			"    ",
+			"    public function printPHP()",
+			"    {",
+			"        echo 'PHP est super' . PHP_EOL;",
+			"    }",
+			"}",
+			"",
+			"class Bar extends Foo",
+			"{",
+			"    public function printItem($string)",
+			"    {",
+			"        echo 'Bar: ' . $string . PHP_EOL;",
+			"    }",
+			"}",
+			"",
+			"$foo = new Foo();",
+			"$bar = new Bar();",
+			"$foo->printItem('baz'); // Affiche : 'Foo: baz'",
+			"$foo->printPHP();       // Affiche : 'PHP est super'",
+			"$bar->printItem('baz'); // Affiche : 'Bar: baz'",
+			"$bar->printPHP();       // Affiche : 'PHP est super'",
+			"",
+			"?>",
+			" */"
+		],
+		"description": "La définition de l'héritage en php"
+	},
+	"Classe Autoloader php": {
+		"prefix": "hc-php-class-autoloader",
+		"body": [
+			"/**",
+			" * Class Autoloader",
+			" */",
+			"class Autoloader{",
+			"",
+			"    /**",
+			"     * Enregistre notre autoloader",
+			"     */",
+			"    static function register(){",
+			"        spl_autoload_register(array(__CLASS__, 'autoload'));",
+			"    }",
+			"",
+			"    /**",
+			"     * Inclue le fichier correspondant à notre classe",
+			"     * @param $class string Le nom de la classe à charger",
+			"     */",
+			"    static function autoload($class){",
+			"        require 'class/' . $class . '.php';",
+			"    }",
+			"",
+			"}",
+			"",
+			"//-------------------------------------------------------------",
+			"//Côté fichier de logique on appelera cette classe comme ceci :",
+			"require 'chemin/vers/autoloader.php'; ",
+			"Autoloader::register();"
+		],
+		"description": "La classe Autoloader from scratch"
+	},
+	"Tutoriel pour afficher en couleur la documentation des commandes dans le terminal linux": {
+		"prefix": "hc-TUTO-document-man-en-couleur-dans-shell",
+		"body": [
+			"/*   ",
+			"",
+			"TUTORIEL POUR AFFICHER LES DOCUMENTATIONS",
+			"        DU TERMINAL EN COULEUR",
+			"",
+			"Installez le paquet most",
+			"",
+			"sudo apt install most",
+			"",
+			"Une fois installé, tapez la commande suivante :",
+			"",
+			"sudo update-alternatives --config pager",
+			"",
+			"Faites le choix n°3",
+			"",
+			"puis Appuyez sur ENTREE",
+			"",
+			"*/"
+		],
+		"description": "Un tuto pour afficher la documentation man dans le shell Linux"
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+}
