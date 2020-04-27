@@ -25,10 +25,10 @@ la snippet est a générer dans un fichier d'extension .php
 
 # Release Notes
 
-Première version. 
+Correctif snippet class DbManager. 
 
 
-### 0.0.1
+### 0.0.2
 
 (version du système node en cours de développement: 14.0.0)
 
