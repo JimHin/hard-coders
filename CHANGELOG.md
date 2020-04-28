@@ -1,8 +1,8 @@
 # Change Log
 
-All notable changes to the "hard-coders" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [0.0.4] - 2017-06-20
+### Added
+- Nouvelles snippets tutoriel : ssh, lamp
 
 ## [Unreleased]
 
