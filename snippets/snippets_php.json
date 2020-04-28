@@ -810,6 +810,53 @@
 			"*/"
 		],
 		"description": "Correction des deux erreurs courantes de phpmyadmin sous ubuntu"
+	},
+	"connexion ssh": {
+		"prefix": "hc-TUTO-ssh",
+		"body": [
+			"/*",
+			"    CONNEXION SSH",
+			"",
+			"    En utilisant le protocole SSH, vous pouvez vous connecter et",
+			"    vous authentifier auprès de serveurs et services distants.",
+			"",
+			"    Vérifier l'existence d'une clé publique :",
+			"    -----------------------------------------",
+			"    ls -al ~/.ssh    (si le répertoire .ssh/ n'existe pas le terminal vous le dira)",
+			"    ",
+			"    Editer sa clé publique",
+			"    ----------------------",
+			"    ssh keygen  ",
+			"    ",
+			"    ou mieux ",
+			"",
+			"    ssh-keygen -t rsa -b 4096 -C \"votre_email@example.com\"",
+			"",
+			"    Dans le menu :",
+			"    -------------",
+			"    ",
+			"    > Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]",
+			"    > Enter passphrase (empty for no passphrase): [Entrez une passphrase]",
+			"    > Enter same passphrase again: [Entrez la même passphrase à nouveau]",
+			"",
+			"    Démarrez l'agent ssh en arrière-plan.",
+			"    ------------------------------------",
+			"    eval \"$(ssh-agent -s)\"",
+			"    > Agent pid 59566 (exemple de réponse)",
+			"",
+			"    Ajoutez sa clé privé à l'agent ssh:",
+			"    ----------------------------------",
+			"",
+			"    ssh-add ~/.ssh/id_rsa",
+			"",
+			"    Copier sa clé ssh",
+			"    -----------------",
+			"    sudo nano ~/.ssh/id_rsa.pub  (Copiez toute l'expression)",
+			"",
+			"",
+			"*/"
+		],
+		"description": "Un tutoriel pour générer sa clé ssh et démarrer l'agent"
 	}
 
 

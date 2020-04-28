@@ -1,4 +1,4 @@
-# Hard-Coders 1.0.0 README
+# Hard-Coders (fr) 0.0.4 LISEZ MOI
 
 Hard-coders est ma seconde création d'extension.
 
@@ -26,9 +26,10 @@ la snippet est a générer dans un fichier d'extension .php
 # Release Notes
 
 Ajout du tutoriel installation LAMP sous ubuntu
+Ajout du tutoriel établir une connexion ssh
 
 
-### 0.0.3
+### 0.0.4
 
 (version du système node en cours de développement: 14.0.0)
 
